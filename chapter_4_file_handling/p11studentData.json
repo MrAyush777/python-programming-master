@@ -1,0 +1,20 @@
+{
+   "student1": {
+      "name": "Ayush",
+      "age": 20,
+      "percentage": 90,
+      "sports": false
+   },
+   "student2": {
+      "name": "Mahi",
+      "age": 25,
+      "percentage": 80,
+      "sports": true
+   },
+   "student3": {
+      "name": "Roshni",
+      "age": 22,
+      "percentage": 70,
+      "sports": false
+   }
+}

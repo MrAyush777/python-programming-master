@@ -1,0 +1,5 @@
+fh = open("p3.txt",'wt')
+fh.write("This file has been created in write mode.\n")
+fh.write("i am ironman\n")
+fh.write("i am thor")
+fh.close()

@@ -1,0 +1,5 @@
+This is a test file.
+We are learning file handling in python.
+Modes to open a file : r w a x b t 
+This line has been appended to the file.
+append mode is used to add content to the existing file without overwriting the existing content.
