@@ -47,8 +47,21 @@ print(df)
 replace_NaN = df["Sr. No."].replace(np.nan,333)
 print(replace_NaN)
 
+# formatting columns :
 
+df["Multiples of 3"] = df["Multiples of 3"]/2   
+print(df.head()) 
 
+# rename the column name : 
 
+df.rename(columns={"Multiples of 3" : "Multiples of 2"})
+print(df.head())
 
+# know the data types 
 
+print(df.dtypes)
+
+# converting the datatype of a column : 
+
+df["Multiples of 3"] = df["Multiples of 3"].astype("int")
+print(df.head())
