@@ -28,3 +28,6 @@ def blogs(request, blog):
     else:
         return HttpResponseNotFound("Page Not found")
     return HttpResponse(res)
+
+def blog_posts_by_numbers(request, blog):
+    return HttpResponse(blog)

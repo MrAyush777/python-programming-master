@@ -4,6 +4,7 @@ from . import views
 # below are app level urls
 
 urlpatterns = [
+    
     path("",views.home),
     path("blogposts",views.blogposts),
 
@@ -14,7 +15,8 @@ urlpatterns = [
     # path("allposts/django-basics", views.django_basics),
 
     # dynamic path - below is a dynamic path for all blog posts
-    
-    path("blogposts/<blog>", views.blogs)
+    # remember that the order of this segmens/paths are also important, as when it call the function it follos the FIFO approach
+    path("blogposts/<int:blog>", views.blog_posts_by_numbers),
+    path("blogposts/<str:blog>", views.blogs)
     
 ]
