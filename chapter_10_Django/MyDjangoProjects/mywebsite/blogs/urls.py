@@ -16,7 +16,15 @@ urlpatterns = [
 
     # dynamic path - below is a dynamic path for all blog posts
     # remember that the order of this segmens/paths are also important, as when it call the function it follos the FIFO approach
-    path("blogposts/<int:blog>", views.blog_posts_by_numbers),
-    path("blogposts/<str:blog>", views.blogs)
+
+    # **** path convertor **** : 
+
+    # 1) METHOD 1 - data types : it uses data types like below, it separates 
+
+    # path("blogposts/<int:blog>", views.blog_posts_by_numbers), # path convertors
+    # path("blogposts/<str:blog>", views.blogs) # path convertors
     
+    # 2) METHOD 2 - slug : it accepts alphabets, numbers and hyphen in the url and nothig else.
+    
+    path("blogposts/<slug:blog>", views.blogs)
 ]
