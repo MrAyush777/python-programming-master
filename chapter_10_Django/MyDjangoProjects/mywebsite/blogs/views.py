@@ -3,10 +3,10 @@ from django.http import HttpResponse, HttpResponseNotFound
 # Create your views here.
 
 def blogposts(request):
-    return HttpResponse("All blog posts !")
+    return HttpResponse("<h1>All blog posts !</h1>")
 
 def home(request):
-    return HttpResponse("HOME PAGE")
+    return HttpResponse("<h1>HOME PAGE</h1>")
 
 # def python_intro(request):
 #     return HttpResponse("Introduction to Python")
@@ -26,7 +26,7 @@ def blogs(request, blog):
     elif blog == "django-basics":
         res = "basics of django"
     else:
-        return HttpResponseNotFound("Page Not found")
+        return HttpResponseNotFound("<h1>Page Not found</h1>")
     return HttpResponse(res)
 
 def blog_posts_by_numbers(request, blog):
