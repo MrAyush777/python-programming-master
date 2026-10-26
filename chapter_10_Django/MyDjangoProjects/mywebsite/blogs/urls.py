@@ -26,5 +26,5 @@ urlpatterns = [
     
     # 2) METHOD 2 - slug : it accepts alphabets, numbers and hyphen in the url and nothig else.
     
-    path("blogposts/<slug:blog>", views.blogs)
+    path("blogposts/<slug:blog>", views.blogs, name="blog-post")
 ]
