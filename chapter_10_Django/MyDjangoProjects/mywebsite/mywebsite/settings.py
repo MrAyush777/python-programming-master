@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'blogs',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -55,7 +56,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR / "blogs" / "templates" ,    
+            # BASE_DIR / "blogs" / "templates" ,  # this is basic approach. this is long method. If we have multiple apps than we need to create multiple dir paths for apps/templates. We have short method, in this file go to the 'INSTALLED_APPS' list variable and into that list variable add your app name as a list element.  
         ],
         'APP_DIRS': True,
         'OPTIONS': {
