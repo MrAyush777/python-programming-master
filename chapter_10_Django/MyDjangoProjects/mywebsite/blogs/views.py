@@ -41,8 +41,10 @@ def blogposts(request):
     # return HttpResponse("<h1>All blog posts !</h1>")
 
 def home(request):
-    res_data = render_to_string("blogs/index.html")
-    return HttpResponse(res_data)
+
+    return render(request, "blogs/index.html")   
+    # res_data = render_to_string("blogs/index.html")
+    # return HttpResponse(res_data)
 
 # def python_intro(request):
 #     return HttpResponse("Introduction to Python")
