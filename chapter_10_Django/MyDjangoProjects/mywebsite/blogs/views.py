@@ -9,10 +9,10 @@ from django.template.loader import render_to_string
 # 1)) To make code dynamic we can make dictionary like below :
 
 blog_names = {
-    "python-intro" : "<h1> Introduction to Python </h1>" ,
-    "python-oops" : "<h1> object oriented programming with python </h1>" ,
-    "django-basics" : "<h1> Basics of Django </h1>" ,
-    "regex" : "<h1> Regular expressions </h1>"
+    "python-intro" : "Introduction to Python" ,
+    "python-oops" : "object oriented programming with python" ,
+    "django-basics" : "Basics of Django" ,
+    "regex" : "Regular expressions"
 }
 
 def blogposts(request):
@@ -56,6 +56,10 @@ def home(request):
 #     return HttpResponse("basics of Django")
 
 
+def process_blog_names(blog):
+    blog_list = blog.split("-")
+    return " ".join(blog_list).title()
+
 
 # 2)) this is long method, bacause we are adding elif statements for urls. If there are 100 urls then we need to add 100 if...elilf..else statements.
 
@@ -72,16 +76,15 @@ def blogs(request, blog):
     # ===========================================================
     # lets make it more dynamic
     
-    
-    
     # ===========================================================
     
     try:
         res = blog_names[blog]
+        return render(request, "blogs/blogs.html", {"blog_text" : res , "blog_name" : process_blog_names(blog)})
     except Exception:
         return HttpResponseNotFound("<h1>Page Not found</h1>")
-    else:
-        return HttpResponse(res)
+    # else:
+    #     return HttpResponse(res)
 
 
 
