@@ -58,7 +58,8 @@ def home(request):
 
 def process_blog_names(blog):
     blog_list = blog.split("-")
-    return " ".join(blog_list).title()
+    # return " ".join(blog_list).title()
+    return " ".join(blog_list) # we added title functionality in our template. see the blogs.html file 
 
 
 # 2)) this is long method, bacause we are adding elif statements for urls. If there are 100 urls then we need to add 100 if...elilf..else statements.
@@ -85,8 +86,6 @@ def blogs(request, blog):
         return HttpResponseNotFound("<h1>Page Not found</h1>")
     # else:
     #     return HttpResponse(res)
-
-
 
 def blog_posts_by_numbers(request, blog):
     return HttpResponse(blog)

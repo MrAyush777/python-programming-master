@@ -1,11 +1,12 @@
 <html lang="en">
     
 <head>
-    <title> {{ blog_name }} </title>
+    <title> {{ blog_name|title }} </title> 
+    {% comment %} this title feature inside the {}braces is used to make every first letter of string capital {% endcomment %}
 </head>
 
 <body>
-    <h1> {{ blog_name }} This is blog post </h1>
+    <h1> {{ blog_name|title }} This is blog post </h1>
     <h2> {{ blog_text }}</h2>
 </body>
 
