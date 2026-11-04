@@ -3,6 +3,9 @@
 {% block page_title %} All blog posts {% endblock %}
 
 {% block body_content%}
+
+{% include "blogs/includes/header.html" %}
+
     <ul>
     {% for blog in blogs %}
         {% comment %} <li> <a href="/blogposts/{{blog}}"> {{ blog|capfirst }} </a> </li>    <--- This method is going to work but its not dynamic. We hardcoded this hyperling. so make it dynaic see below  {% endcomment %} 
