@@ -7,7 +7,12 @@
 
 <body>
     <h1> {{ blog_name|title }} This is blog post </h1>
-    <h2> {{ blog_text }}</h2>
+
+    {% if blog_text  %}
+    <h2> {{ blog_text }} </h2>
+    {% else %}
+    <h2> blog is in progrss </h2>
+    {% endif %}
 </body>
 
 </html>

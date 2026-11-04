@@ -12,7 +12,8 @@ blog_names = {
     "python-intro" : "Introduction to Python" ,
     "python-oops" : "object oriented programming with python" ,
     "django-basics" : "Basics of Django" ,
-    "regex" : "Regular expressions"
+    "regex" : "Regular expressions" ,
+    "tkinter" : None
 }
 
 def blogposts(request):
