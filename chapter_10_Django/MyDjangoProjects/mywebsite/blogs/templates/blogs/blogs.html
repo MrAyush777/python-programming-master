@@ -1,18 +1,18 @@
-<html lang="en">
-    
-<head>
-    <title> {{ blog_name|title }} </title> 
+{% extends "base.html" %}
+
+{% block page_title %}
+    {{ blog_name|title }}
     {% comment %} this title feature inside the {}braces is used to make every first letter of string capital {% endcomment %}
-</head>
+{% endblock %}
 
-<body>
-    <h1> {{ blog_name|title }} This is blog post </h1>
+{% block body_content %}
 
-    {% if blog_text  %}
-    <h2> {{ blog_text }} </h2>
-    {% else %}
-    <h2> blog is in progrss </h2>
-    {% endif %}
-</body>
+<h1> {{ blog_name|title }} This is blog post </h1>
 
-</html>
+{% if blog_text  %}
+<h2> {{ blog_text }} </h2>
+{% else %}
+<h2> blog is in progrss </h2>
+{% endif %}
+
+{% endblock  %}

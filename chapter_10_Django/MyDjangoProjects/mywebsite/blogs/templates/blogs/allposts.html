@@ -1,14 +1,12 @@
-<html>
+{% extends "base.html" %}
 
-<head>
-    <title> All blog posts </title>    
-</head>
+{% block page_title %} All blog posts {% endblock %}
 
-<body>
+{% block body_content%}
     <ul>
     {% for blog in blogs %}
         {% comment %} <li> <a href="/blogposts/{{blog}}"> {{ blog|capfirst }} </a> </li>    <--- This method is going to work but its not dynamic. We hardcoded this hyperling. so make it dynaic see below  {% endcomment %} 
         <li> <a href=" {% url 'blog-post' blog %} "> {{ blog|capfirst }} </a> </li>     
     {% endfor %}
     </ul>
-</body>
+{% endblock %}
