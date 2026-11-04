@@ -18,9 +18,12 @@ blog_names = {
 def blogposts(request):
     
     list_items = ""
-    blog_list = list(blog_names.keys())
+    blog_list = list(blog_names.keys()) 
+    
+    return render(request, "blogs/allposts.html", {"blogs" : blog_list})
+    
     for b in blog_list:
-        blog_path = reverse("blog-post", args=[b])
+        blog_path = reverse("blog-post", args=[b]) # reverse function of Python not Django...
         list_items += f'<li> <a href="{blog_path}"> {b.capitalize()} </a> </li>'    
 
     # 1) below is a static method :
