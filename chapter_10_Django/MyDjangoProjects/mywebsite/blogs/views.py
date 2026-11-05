@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound 
+from django.http import Http404, HttpResponse, HttpResponseNotFound 
 from django.urls import reverse
 from django.template.loader import render_to_string
 
@@ -87,7 +87,9 @@ def blogs(request, blog):
         res = blog_names[blog]
         return render(request, "blogs/blogs.html", {"blog_text" : res , "blog_name" : process_blog_names(blog)})
     except Exception:
-        return HttpResponseNotFound("<h1>Page Not found</h1>")
+        # res_data = render_to_string("404.html")
+        # return HttpResponseNotFound(res_data)
+        raise Http404()
     # else:
     #     return HttpResponse(res)
 
