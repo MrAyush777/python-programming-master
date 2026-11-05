@@ -5,7 +5,8 @@ from . import views
 
 urlpatterns = [
     
-    path("",views.home),
+    path("",views.home, name="home"),
+    
     path("blogposts",views.blogposts),
 
     # static path - below all are static paths of all blog posts 

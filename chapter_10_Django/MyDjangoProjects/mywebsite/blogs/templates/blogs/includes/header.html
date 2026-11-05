@@ -1,5 +1,8 @@
 <header>
     <nav>
-        <a href=""> Home Page </a>
+        <a href="{% url "home" %}"> Home Page </a>
     </nav>
+
+    {% comment %} {{blog_name}} {% endcomment %}
+    {{ active_page }}
 </header>
