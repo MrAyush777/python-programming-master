@@ -1,7 +1,10 @@
+{% load static %}
+
 <html>
 
 <head>
     <title> {% block page_title %} My Blog {% endblock %} </title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}"> </link>
     {% block css_files  %} {% endblock %}
 </head>
 
