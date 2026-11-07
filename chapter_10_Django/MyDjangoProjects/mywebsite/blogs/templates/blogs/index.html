@@ -1,13 +1,67 @@
 {% extends "base.html" %}
-
+{% load static %}
 
 {% block page_title %}
 Our blog post home page 
 {% endblock  %}
 
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'blogs/app.css' %}" >
+{% endblock  %}
+
 {% block body_content %}
-<h1> My personal blog </h1>
-<h2> Write about python and related stuff </h2>
-<h3> I am Uchiha </h3>
+
+<header>
+    <h1> <a href=""> Home Page </a> </h1>
+    <nav> 
+        <a href=""> All Posts </a>
+    </nav>
+</header>
+
+<section>
+    <header>
+        <h1> My personal blog </h1>
+        <h2> Write about python and related stuff </h2>
+        <h3> I am Uchiha </h3>
+        <img src="" alt="MrAyush" />
+    </header>
+</section>
+
+<section>
+    <h2> Featured Blog Posts </h2>
+    <ul>
+        <li> 
+            <article> 
+                <a href=""> 
+                    <img src="" alt="Python" />
+                    <div> 
+                        <h3> Python Intro </h3>
+                        <p> Python is a high level programming language. </p>
+                    </div>
+                </a> 
+            </article>
+        </li>
+        <li> 
+            <article> 
+                <a href=""> 
+                    <img src="" alt="Django" />
+                    <div> 
+                        <h3> Django Basics </h3>
+                        <p> Django is a high-level Python web framework. </p>
+                    </div>
+                </a> 
+            </article>
+        </li>
+    </ul>
+</section>
+
+
+<section>
+    <h2> About the Authog <h2>
+    <p> The Author has about 10+ years of experience in application and software development. He also makes content on Python & Django </p>
+    <p> Contact the author on contact@example.com </p>
+</section>
+
+
 
 {% endblock  %}
