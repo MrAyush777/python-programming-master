@@ -5,11 +5,18 @@
 <head>
     <title> {% block page_title %} My Blog {% endblock %} </title>
     <link rel="stylesheet" href="{% static 'styles.css' %}"> </link>
-    {% block css_files  %} {% endblock %}
+    {% block css_files  %} 
+    
+    {% endblock %}
 </head>
 
 <body>
-
+<header>
+    <h1> <a href="{% url "home" %}"> Home Page </a> </h1>
+    <nav> 
+        <a href=""> All Posts </a>
+    </nav>
+</header>
 </body>
     {% block body_content%}
 
