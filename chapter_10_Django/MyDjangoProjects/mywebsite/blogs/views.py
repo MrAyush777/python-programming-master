@@ -102,10 +102,9 @@ def blogposts(request):
     # return HttpResponse("<h1>All blog posts !</h1>")
 
 def home(request):
-
-    return render(request, "blogs/index.html")   
-    # res_data = render_to_string("blogs/index.html")
-    # return HttpResponse(res_data)
+    sorted_blogs = sorted(blog_details, key=lambda post:post['date'], reverse=True)
+    latest_blogs = sorted_blogs[:2]
+    return render(request, "blogs/index.html", {"latestBlogs" : latest_blogs})   
 
 # def python_intro(request):
 #     return HttpResponse("Introduction to Python")

@@ -23,17 +23,19 @@ Our blog post home page
 <section>
     <h2> Featured Blog Posts </h2>
     <ul>
-        <li> 
-            <article> 
-                <a href=""> 
-                    <img src="{% static 'blogs/images/img2.jpg' %}" alt="Python" />
-                    <div> 
-                        <h3> Python Intro </h3>
-                        <p> Python is a high level programming language. </p>
-                    </div>
-                </a> 
-            </article>
-        </li>
+        {% for blog in latestBlogs %}
+        {% comment %} <li> <a href="/blogposts/{{blog}}"> {{ blog|capfirst }} </a> </li>    <--- This method is going to work but its not dynamic. We hardcoded this hyperling. so make it dynaic see below  {% endcomment %} 
+        <li>
+            <article>
+                <a href=" {% url 'blog-post' blog=blog.slug %} "> {{ blog.title }} </a> 
+                <img src="{% static 'blogs/images/'|add:blog.image %}" alt="{{blog.title}}" />
+                <div> 
+                    <p> {{blog.preview}} </p>
+                </div>
+            </article> 
+        </li>     
+        {% endfor %}
+
         <li> 
             <article> 
                 <a href=""> 
