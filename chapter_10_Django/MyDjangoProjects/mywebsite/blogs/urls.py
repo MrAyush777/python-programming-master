@@ -7,7 +7,7 @@ urlpatterns = [
     
     path("",views.home, name="home"),
     
-    path("blogposts",views.blogposts),
+    path("blogposts", views.blogposts, name="all-posts"),
 
     # static path - below all are static paths of all blog posts 
 

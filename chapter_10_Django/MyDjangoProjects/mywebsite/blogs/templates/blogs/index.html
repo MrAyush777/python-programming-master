@@ -25,15 +25,9 @@ Our blog post home page
     <ul>
         {% for blog in latestBlogs %}
         {% comment %} <li> <a href="/blogposts/{{blog}}"> {{ blog|capfirst }} </a> </li>    <--- This method is going to work but its not dynamic. We hardcoded this hyperling. so make it dynaic see below  {% endcomment %} 
-        <li>
-            <article>
-                <a href=" {% url 'blog-post' blog=blog.slug %} "> {{ blog.title }} </a> 
-                <img src="{% static 'blogs/images/'|add:blog.image %}" alt="{{blog.title}}" />
-                <div> 
-                    <p> {{blog.preview}} </p>
-                </div>
-            </article> 
-        </li>     
+             
+        {% include 'blogs/includes/posts.html' %}
+
         {% endfor %}
 
         <li> 
