@@ -124,6 +124,12 @@ def process_blog_names(blog):
 
 # 2)) this is long method, bacause we are adding elif statements for urls. If there are 100 urls then we need to add 100 if...elilf..else statements.
 
+def get_blog_by_slug(blog_url):
+    for blog in blog_details:
+        if blog['slug'] == blog_url:
+            return blog
+    return None
+
 def blogs(request, blog):
     
     # if blog == "python-intro":
@@ -140,8 +146,8 @@ def blogs(request, blog):
     # ===========================================================
     
     try:
-        res = blog_names[blog]
-        return render(request, "blogs/blogs.html", {"blog_text" : res , "blog_name" : process_blog_names(blog)})
+        res = get_blog_by_slug(blog)
+        return render(request, "blogs/blogs.html", {"post" : res})
     except Exception:
         # res_data = render_to_string("404.html")
         # return HttpResponseNotFound(res_data)
