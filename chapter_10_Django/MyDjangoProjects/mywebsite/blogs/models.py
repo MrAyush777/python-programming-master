@@ -18,5 +18,6 @@ class Post(models.Model):
     date = models.DateField(auto_now=True)
     slug = models.SlugField(unique=True)
     image = models.CharField(max_length=50)
-    author = models.ForeignKey(Author, on_delete=models.SET_NULL)
+    author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True)
+    tag = models.ManyToManyField(Tag) 
 
