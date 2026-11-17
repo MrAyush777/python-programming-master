@@ -2,11 +2,21 @@ from django.db import models
 
 # Create your models here.
 
-class Post(models.Model):
+class Author(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    email_addr = models.EmailField()
+
+class Tag(models.Model): # this will be many to many relationship
+    caption = models.CharField(max_length=20)
     
+class Post(models.Model):
+
     title = models.CharField(max_length=100)
     priview = models.CharField(max_length=250)
     content = models.TextField()
     date = models.DateField(auto_now=True)
     slug = models.SlugField(unique=True)
     image = models.CharField(max_length=50)
+    author = models.ForeignKey(Author, on_delete=models.SET_NULL)
+
