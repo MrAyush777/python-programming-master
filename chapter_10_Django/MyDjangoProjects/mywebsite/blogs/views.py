@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.http import Http404, HttpResponse, HttpResponseNotFound 
 from django.urls import reverse
 from django.template.loader import render_to_string
-
+from .models import Post
 
 # Create your views here.
 
@@ -14,62 +14,7 @@ from django.template.loader import render_to_string
 
 blog_details = [
     
-    {
-        "slug" : "python-intro",
-        "image" : "img1.jpg",
-        "date" : date(2026,11,14),
-        "title" : "Python Introduction",
-        "preview" : """ 
-            Python is an open source, high-level interpreted programming language used widely. Application of python are web development, data science, machine learning, artificial intelligence, automation, and many more.    
-        """,
-        "content" : """ 
-            Python is a high-level, easy‑to‑read programming language with simple syntax and broad applications.Created by Guido van Rossum and released in 1991, it supports multiple programming paradigms and runs on Windows, macOS, Linux, and more. You can start coding instantly with a “Hello, World!”
-        """
-    },
-    {
-        "slug" : "python-oops",
-        "image" : "img2.jpg",
-        "date" : date(2026,11,13),
-        "title" : "Object Oriented Programming with Python",
-        "preview" : """
-            object oriented programming is a fundamental programming paradigm that uses objects and classes to structure code.
-        """,
-        "content" : """
-            OOP is a way of organizing code that uses concept of classes and objects to represent real-world entities and their interactions. It promotes code reusability, modularity, and encapsulation, making it easier to manage complex software systems.
-        """
-    },
-    {
-        "slug" : "django-basics",
-        "image" : "img3.jpg",
-        "date" : date(2026,11,11),
-        "title" : "Basics of Django framework of Python",
-        "preview" : """Django is a Python-based web framework that simplifies building secure, scalable, and maintainable web applications using the Model‑View‑Template (MVT) architecture""" ,
-        "content" : """ 
-            Django is free, open-source, and follows the DRY (Don’t Repeat Yourself) principle. It handles many backend tasks — database management, user authentication, URL routing, form handling — so you can focus on application logic 
-            . It works with SQLite, MySQL, and PostgreSQL, and includes a built‑in admin panel for easy data management
-        """
-    },
-    {
-        "slug" : "regex",
-        "image" : "img4.jpg",
-        "date" : date(2026,11,10),
-        "title" : "Regular Expressions in Python",
-        "preview" : """
-                    In Python, a regular expression is a sequence of characters         that defines a search pattern, used for matching, validating, or extracting      text via the re module. 
-        """,
-        "content" : """
-                    Regular expressions (called REs, or regexes, or regex patterns) are essentially a tiny, highly specialized programming language embedded inside Python and made available through the re module. Using this little language, you specify the rules for the set of possible strings that you want to match; this set might contain English sentences, or e-mail addresses, or TeX commands, or anything you like.
-        """
-    }
 ]
-
-# {
-#     "python-intro" : "Introduction to Python" ,
-#     "python-oops" : "object oriented programming with python" ,
-#     "django-basics" : "Basics of Django" ,
-#     "regex" : "Regular expressions" ,
-#     "tkinter" : None
-# }
 
 # =======================================================================
 
@@ -102,8 +47,8 @@ def blogposts(request):
     # return HttpResponse("<h1>All blog posts !</h1>")
 
 def home(request):
-    sorted_blogs = sorted(blog_details, key=lambda post:post['date'], reverse=True)
-    latest_blogs = sorted_blogs[:2]
+   
+    latest_blogs = Post.objects.all().order_by("-date")[:2]
     return render(request, "blogs/index.html", {"latestBlogs" : latest_blogs})   
 
 # def python_intro(request):
