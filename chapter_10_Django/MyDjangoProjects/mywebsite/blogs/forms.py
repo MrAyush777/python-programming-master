@@ -11,3 +11,5 @@ class CommentForm(forms.ModelForm):
         # we can also use exclude to exclude certain fields from the form. for example if we want to exclude the post field from the form, we can use the below line instead of the above line. 
         exclude = ["post"]
         
+        labels = { "user_name" : "Your Name", "user_email" : "Your Email", "comment_text" : "Comment"}
+        
