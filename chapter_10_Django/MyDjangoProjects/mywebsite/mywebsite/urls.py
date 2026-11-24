@@ -25,5 +25,5 @@ urlpatterns = [
     # path('blogs/',include('blogs.urls')) # This is a blogs page not the home page. when we run the server it is by default run on home page. and the url of actual homepage is : http://127.0.0.1:8000. 
     # so to make that remove 'blogs/' from the above url
     
-    path('', include('blogs.urls'))
+    path('', include('blogs.urls')),
 ]

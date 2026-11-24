@@ -22,11 +22,11 @@ class Tag(models.Model): # this will be many to many relationship
 class Post(models.Model):
 
     title = models.CharField(max_length=100)
-    priview = models.CharField(max_length=250)
+    preview = models.CharField(max_length=250)
     content = models.TextField()
     date = models.DateField(auto_now=True)
     slug = models.SlugField(unique=True)
     image = models.CharField(max_length=50)
     author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True)
-    tag = models.ManyToManyField(Tag) 
+    tags = models.ManyToManyField(Tag) 
 

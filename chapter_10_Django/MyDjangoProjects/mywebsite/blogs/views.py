@@ -21,10 +21,8 @@ def home(request):
 def blogs(request, blog):
     try:
         res = Post.objects.get(slug=blog) # here slug is a field in our Post model. we can use any field to get the data from database.
+        # tag_caption = res.tags.all()
         return render(request, "blogs/blogs.html", {"post" : res})
     except Exception:
         raise Http404()
   
-
-def blog_posts_by_numbers(request, blog):
-    return HttpResponse(blog)
