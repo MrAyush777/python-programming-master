@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import Http404, HttpResponse
 from .models import Post
+from .forms import CommentForm
 
 # Create your views here.
 
@@ -20,9 +21,11 @@ def home(request):
 
 def blogs(request, blog):
     try:
-        res = Post.objects.get(slug=blog) # here slug is a field in our Post model. we can use any field to get the data from database.
-        # tag_caption = res.tags.all()
-        return render(request, "blogs/blogs.html", {"post" : res})
+        post_data = Post.objects.get(slug=blog) # here slug is a field in our Post model. we can use any field to get the data from database.
+        tag_caption = post_data.tags.all()
+        form_data = CommentForm()
+        return render(request, "blogs/blogs.html", 
+            {"post" : post_data, "tags" : tag_caption, "comment_form" : form_data})
     except Exception:
         raise Http404()
   
