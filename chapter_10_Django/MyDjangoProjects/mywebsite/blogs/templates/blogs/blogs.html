@@ -28,6 +28,7 @@
 <section>
     <h2> Comments </h2>
     <form method="POST">
+        {% csrf_token %}
         {{ comment_form }}
         <button> Save </button>
     </form>
