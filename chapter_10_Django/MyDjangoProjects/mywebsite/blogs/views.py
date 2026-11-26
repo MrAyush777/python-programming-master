@@ -28,7 +28,9 @@ def blogs(request, blog):
         commented_data = request.POST
         form = CommentForm(commented_data)
         if form.is_valid():
-            form.save()
+            comment = form.save(commit=False)
+            comment.post = post_data
+            comment.save()
             return HttpResponseRedirect("blog-post", args=[blog])
         return render(request, "blogs/blogs.html", 
                     {"post" : post_data, "tags" : tag_caption, "comment_form" : form})
