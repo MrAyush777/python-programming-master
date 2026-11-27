@@ -28,7 +28,10 @@ class Post(models.Model):
     slug = models.SlugField(unique=True)
     image = models.CharField(max_length=50)
     author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True)
-    tags = models.ManyToManyField(Tag) 
+    tags = models.ManyToManyField(Tag)
+    
+    def __str__(self):
+        return self.title
 
 class Comment(models.Model):
     user_name = models.CharField(max_length=50)
